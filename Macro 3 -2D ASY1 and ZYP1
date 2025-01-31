@@ -1,22 +1,30 @@
-
-
+//Select Select ZYP1 chanel
 run("Duplicate...", "duplicate");
 run("Z Project...", "projection=[Max Intensity]");
 run("Split Channels");
-
 close();
 
+//Threshold ZYP1 signal
 setAutoThreshold("Default dark");
-//run("Threshold...");
 setOption("BlackBackground", false);
 run("Convert to Mask");
+
+//Skeletonize thresholded ZYP1 signal
 run("Skeletonize");
+
+//Measure ZYP1 skeleton
 run("Summarize Skeleton");
+
+//Select ASY1 channel
 close();
 
+//Threshold ASY1 signal
 setAutoThreshold("Default dark");
-//run("Threshold...");
 setAutoThreshold("Yen dark");
 run("Convert to Mask");
+
+//Skeletonize thresholded ASY1 signal
 run("Skeletonize");
+
+//Measure ASY1 skeleton
 run("Summarize Skeleton");
