@@ -84,7 +84,11 @@ crossovers_est <- diakinesis %>% filter (Genotype == "HYB_4x")
     diakinesis <- bind_rows(crossovers_dip, crossovers_neo, crossovers_hyb, crossovers_est) ## Update SIM
     diakinesis$Genotype <- factor(diakinesis$Genotype, levels = c("DIP_2x", "NEO_4x", "HYB_4x", "EST_4x"))  # Re-factor
     
-
+  ##test
+    kruskal.test(foci ~ Genotype, data = diakinesis) 
+    pairwise.wilcox.test(diakinesis$foci, diakinesis$Genotype, p.adjust.method = "holm")
+    dunn.test (diakinesis$foci, diakinesis$Genotype, method = "holm")
+    
   #After the test half crossover number back for later analyses
   crossovers_dip$foci <- 1/2*crossovers_dip$foci #to double the values of DIP so it can be compared with tetraploids
   diakinesis <- bind_rows(crossovers_dip, crossovers_neo, crossovers_hyb, crossovers_est) ## Update SIM
