@@ -190,5 +190,3 @@ crossovers_est <- diakinesis %>% filter (Genotype == "HYB_4x")
     boxplot_plot + geom_jitter(data = cofoci, width = 0.1, height = 0.2,  alpha = 0.25,
                                aes(x = class, y = count, color = class))
   
-    
-write_excel_csv (SIM, file = "C:/Users/adri/Documents/R cytology/immuno 2.0/SIM2.csv") 
